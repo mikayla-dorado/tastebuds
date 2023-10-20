@@ -1,6 +1,7 @@
 .auth-container {
     border: 1px solid gray;
-    margin: 3rem 15rem;
+    margin: 3rem 5rem ;
+    margin-top: 200px;
     padding: 2rem;
     border-radius: 1rem;
   }
@@ -33,3 +34,4 @@
   .signin-btn {
     border: solid black;
   }
+

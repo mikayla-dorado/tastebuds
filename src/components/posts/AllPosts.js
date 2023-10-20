@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { getAllPosts } from "../../../services/getAllPosts"
-import { getAllCuisines } from "../../../services/getAllCuisines"
-import { Post } from "./posts"
+import { getAllPosts } from "../../services/getAllPosts"
+import { getAllCuisines } from "../../services/getAllCuisines"
+import { Post } from "./Post"
 import { FilterBar } from "./FilterBar" 
 
 
@@ -47,8 +47,8 @@ export const AllPosts = () => {
 
 
     return (
-        <div className="posts-container">
-            <h2>All Posts</h2>
+        <div className="posts-container bg-gray-200">
+            <h2 className="header text-center">All Posts</h2>
             <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
             <div>
                 {filteredPosts.map((postObj) => {

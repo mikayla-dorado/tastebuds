@@ -5,11 +5,11 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
                 <div className="filter-by-cuisine">
 
                 
-                    <h2 className="filter-topic">Filter by cuisine:</h2>
+                    {/* <h2 className="filter-topic">Filter by cuisine:</h2> */}
                     
 
                 {/* this select creates a dropwdown element */}
-                <div className="alltopics-dropdown w-24">
+                <div className="alltopics-dropdown w-32">
                     <select
                         name="cuisines"
                         id="cuisines"
@@ -29,7 +29,7 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
                                 setChosenCuisine(foundCuisine)
                             }
                         }}>
-                        <option value="0">All Cuisines</option>
+                        <option className="select-cuisines border w-40" value="0">All Cuisines</option>
 
                         {/* using the allTopics prop */}
 
@@ -40,7 +40,7 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
                     </div>
 
                         {/* this makes the search bar */}
-                    <div className="search-term">
+                    <div className="search-term w-52">
                         <input 
                             type="text"
                             placeholder="Search Posts"

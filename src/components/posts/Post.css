@@ -1,0 +1,41 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.individual-post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10%;
+    border: solid black;
+    border-radius: 5px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    padding-left: 45%;
+    
+}
+
+.post-cuisine {
+    border: solid rgba(0, 0, 0, 0.575);
+    margin-right: 100%;
+    
+}
+
+.search-term {
+    border: solid rgba(0, 0, 0, 0.89);
+    border-radius: 5px;
+}
+
+.alltopics-dropdown {
+    border: solid black;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+.post-description {
+    border: solid rgba(0, 0, 0, 0.575);
+    margin-top: 10px;
+   
+}
