@@ -2,6 +2,9 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { AllPosts } from "../components/posts/AllPosts"
 import { NavBar } from "../components/nav/NavBar"
+import { PostDetails } from "../components/posts/PostDetails"
+import { NewPost } from "../components/posts/NewPost"
+import { MyProfile } from "../components/posts/MyProfile"
 //import { NavBar } from "../components/nav/NavBar"
 
 
@@ -31,7 +34,10 @@ export const ApplicationViews = () => {
         <Route index element={<AllPosts />} />
         <Route path="post">
           <Route index element={<AllPosts />} />
+          <Route path=":postId" element={<PostDetails currentUser={currentUser} />} />
         </Route>
+        <Route path="newpost" element={<NewPost currentUser={currentUser} />} />
+        <Route path="myprofile" element={<MyProfile currentUser={currentUser} />} />
       </Route>
     </Routes>
   )

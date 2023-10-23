@@ -48,7 +48,7 @@ export const AllPosts = () => {
 
     return (
         <div className="posts-container bg-gray-200">
-            <h2 className="header text-center">All Posts</h2>
+            {/* <h2 className="header text-center">All Posts</h2> */}
             <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
             <div>
                 {filteredPosts.map((postObj) => {

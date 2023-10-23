@@ -24,9 +24,9 @@ useEffect(() => {
 
 
 return (
-    <div className="individual-post bg-sky-800 border text-gray-100">
-        <header>Title: </header>
-        <div>
+    <div className="individual-post bg-orange-300 border text-gray-700">
+        
+        <div className="allposts-title underline">
         <Link to={`/post/${post.id}`} >{post?.title} </Link>
         </div>
         <div className="post-cuisine">

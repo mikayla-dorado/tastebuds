@@ -18,13 +18,15 @@ body {
 }
 
 .post-cuisine {
-    border: solid rgba(0, 0, 0, 0.575);
+    border: solid rgba(0, 0, 0, 0.795);
     margin-right: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
     
 }
 
 .search-term {
-    border: solid rgba(0, 0, 0, 0.89);
+    border: solid rgba(0, 0, 0, 0.911);
     border-radius: 5px;
 }
 
@@ -35,7 +37,58 @@ body {
 }
 
 .post-description {
-    border: solid rgba(0, 0, 0, 0.575);
+    border: solid rgba(0, 0, 0, 0.795);
     margin-top: 10px;
    
+}
+
+.postdetails-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.like-btn {
+    border: solid black;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.postdetails-body {
+  
+    margin-top: 15px;
+}
+
+.text-center {
+    font-weight: bold;
+}
+
+.postdetails-cuisine {
+    border: solid;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.details {
+    border:solid;
+}
+
+.postdetails-author {
+    margin-top: 2%;
+}
+
+.editpost-btn {
+    border: solid black;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.allposts-title {
+    font-weight: bold;
+}
+
+.border {
+    border:solid black;
+    display: flex;
+    flex-wrap: wrap;
 }
