@@ -53,14 +53,14 @@ export const NewPost = ({ currentUser }) => {
             <header className="text-center">Create a New Post</header>
 
             <form onSubmit={handleSave}>
-                <h2>Select Cuisine</h2>
+                
                 <select
                     name="cuisines"
                     id="cuisines"
                     onChange={(e) => setSelectedCuisineId(e.target.value)}
                     value={selectedCuisineId}
                 >
-                    <option>All Cuisines</option>
+                    <option>Select Cuisine</option>
 
                     {cuisines.map((cuisine) => {
                         return (<option value={cuisine.id} key={cuisine.id}>{cuisine.type}</option>)
@@ -111,13 +111,12 @@ export const NewPost = ({ currentUser }) => {
                     />
                 </div>
                 <div>
-                    <button type="save" onClick={handleSave}>
+                    <button type="save" onClick={handleSave} className="border border bg-gray-100">
                         Post Recipe
                     </button>
                 </div>
             </form>
         </div>
-
 
     )
 }

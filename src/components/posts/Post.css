@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.individual-post{
+.individual-post {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,8 +13,8 @@ body {
     padding-top: 5%;
     padding-bottom: 5%;
     text-align: center;
-    padding-left: 45%;
-    
+    padding-left: 35%;
+
 }
 
 .post-cuisine {
@@ -22,7 +22,7 @@ body {
     margin-right: 100%;
     padding-left: 5px;
     padding-right: 5px;
-    
+
 }
 
 .search-term {
@@ -39,7 +39,7 @@ body {
 .post-description {
     border: solid rgba(0, 0, 0, 0.795);
     margin-top: 10px;
-   
+
 }
 
 .postdetails-title {
@@ -55,7 +55,7 @@ body {
 }
 
 .postdetails-body {
-  
+
     margin-top: 15px;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .details {
-    border:solid;
+    border: solid;
 }
 
 .postdetails-author {
@@ -88,7 +88,35 @@ body {
 }
 
 .border {
-    border:solid black;
+    border: solid black;
     display: flex;
     flex-wrap: wrap;
+}
+
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    flex-direction: row;
+    margin-top: 65px;
+    max-width: 2500px;
+}
+
+.myprofile {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-self: center;
+    max-width: 500px;
+    margin-top: 25px;
+}
+
+.editpost {
+    border:solid black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }

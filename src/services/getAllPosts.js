@@ -35,3 +35,13 @@ export const deletePost = (post) => {
         body: JSON.stringify(post)
     })
 }
+
+export const editPost = (post) => {
+    return fetch("http://localhost:8088/posts", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post)
+    })
+}
