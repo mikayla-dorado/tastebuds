@@ -44,29 +44,43 @@ export const EditPost = () => {
         getPostById(postId.postId).then((data) => {
             const postObj = data[0]
             setPost(postObj)
+            setTitle(postObj.title)
+            setCuisine(postObj.cuisine)
+            setBody(postObj.body)
+            setIngredients(postObj.ingredients)
+            setDescription(postObj.description)
         })
     }, [postId])
 
     const handleSave = (event) => {
         event.preventDefault()
 
-        if (post.title === "" || post.body === "" || post.cuisineId === undefined || post.ingredients === "" || post.description === "") {
+        if (post?.title === "" || post?.body === "" || post?.cuisineId === undefined || post?.ingredients === "" || post?.description === "") {
             window.alert('Please fill out all fields')
         } else {
             editPost(post).then(() => {
-                navigate('/editpost')
+                navigate('/myprofile')
             })
         }
     }
 
     const handleInputChange = (event) => {
-        const stateCopy = { ...post }
-        if (event.target.name === "cuisineId") {
-            stateCopy[event.target.name] = parseInt(event.target.value)
-        } else {
-            stateCopy[event.target.name] = event.target.value
-        }
-        setPost(stateCopy)
+        // const stateCopy = { ...post }
+        // if (event.target.name === "cuisineId") {
+        //     stateCopy[event.target.name] = parseInt(event.target.value)
+        // } else {
+        //     stateCopy[event.target.name] = event.target.value
+        // }
+        // setPost(stateCopy)
+        setPost((prevState) => {
+            const updatedPost = {...prevState}
+            if (event.target.name === 'cuisineId') {
+                updatedPost[event.target.name] = parseInt(event.target.value)
+            } else {
+                updatedPost[event.target.name] = event.target.value
+            }
+            return updatedPost
+        })
     }
 
     return (
@@ -119,7 +133,7 @@ export const EditPost = () => {
                     />
                 </div>
                 <div>
-                    <button className="savechagnes-btn border border px-1" onClick={(handleSave) => { navigate('/myprofile') }}>Save Changes</button>
+                    <button className="savechagnes-btn border border px-1" onClick={handleSave}>Save Changes</button>
                 </div>
             </form>
         </div>

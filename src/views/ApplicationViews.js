@@ -35,8 +35,8 @@ export const ApplicationViews = () => {
           <Route index element={<AllPosts />} />
           <Route path=":postId" element={<PostDetails currentUser={currentUser} />} />
         </Route>
-        <Route path="newpost" element={<NewPost currentUser={currentUser} />} />
-        <Route path="myprofile" element={<MyProfile currentUser={currentUser} />} />
+        <Route path="newpost" element={<NewPost  currentUser={currentUser}/>} />
+        <Route path="myprofile" element={<MyProfile currentUser={currentUser}/>} />
         <Route path="favorites" element={<Favorites currentUser={currentUser} />} />
         <Route path="editpost">
           <Route path=":postId" element={<EditPost currentUser={currentUser} />} />
@@ -44,5 +44,4 @@ export const ApplicationViews = () => {
       </Route>
     </Routes>
   )
-
 }

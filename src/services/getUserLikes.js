@@ -1,5 +1,5 @@
 export const getUserLikes = () => {
-    return fetch("http://localhost:8088/posts?_embed=userLikes").then(
+    return fetch(`http://localhost:8088/userLikes/?userId=1&_expand=post&_expand=user`).then(
         (res) => res.json()
     )
 }

@@ -38,14 +38,20 @@ export const PostDetails = ({ currentUser }) => {
     }
 
     const renderLikeButton = () => {
-        if (isPostLiked()) {
-            return null
-        } else {
+        if (isPostByCurrentUser()) {
             return (
-                <button className="like-btn border-double rounded w-24 bg-cyan-500 hover:bg-cyan-600 text-gray-100" onClick={handleLikedPost}>Like Post</button>
-            )
-        }
-
+             null
+            );
+          }
+          if (isPostLiked()) {
+            return null;
+          } else {
+            return (
+              <button className="like-btn border-double rounded w-24 bg-cyan-500 hover:bg-cyan-600 text-gray-100" onClick={handleLikedPost}>
+                Like Post
+              </button>
+            );
+          }
     }
 
     const handleLikedPost = () => {

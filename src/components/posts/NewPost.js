@@ -45,7 +45,7 @@ export const NewPost = ({ currentUser }) => {
             cuisineId: selectedCuisineId,
             userId: currentUser.id
         })
-        navigate('/mypost')
+        navigate('/myprofile')
     }
 
     return (
