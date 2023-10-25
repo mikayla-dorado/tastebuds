@@ -37,7 +37,7 @@ export const MyProfile = ({ currentUser }) => {
                     .map((post) => (
                         <div key={post.id}>
                             <Link to={`/post/${post.id}`} className="title text-center underline">{post.title}</Link>
-                            <div className="postdetails-cuisine w-24">
+                            <div className="postdetails-cuisine w-24 mx-2.5">
                                 {post?.cuisine?.type}
                             </div>
                             <div>
@@ -45,17 +45,19 @@ export const MyProfile = ({ currentUser }) => {
                             </div>
                             <div>
                                 <button onClick={() => {
-                                    handleDelete(post)
+                                    handleEdit(post)
                                     refetchUserPosts()
-                                }} 
-                                className="mypost-delete border border-dashed border-red-500 w-24 bg-gray-100">Delete Post</button>
+                                    navigate(`/editpost/${post.id}`)
+                                }} className="editpost rounded bg-gray-100">Edit Post</button>
                             </div>
                             <div>
                                 <button onClick={() => {
-                                    handleEdit(post)
+                                    handleDelete(post)
                                     refetchUserPosts()
-                                }} className="editpost bg-gray-100">Edit Post</button>
+                                }}
+                                    className="mypost-delete border rounded bg-gray-100">Delete Post</button>
                             </div>
+
                         </div>
                     ))}
             </div>
@@ -63,7 +65,7 @@ export const MyProfile = ({ currentUser }) => {
                 <button onClick={() => {
                     navigate(`/newpost`)
                 }}
-                    className="newpost-btn my-2.5 border border mx-4">Create a New Post
+                    className="newpost-btn my-2.5 border border mx-4 bg-cyan-500 hover:bg-cyan-600">Create a New Post
                 </button>
             </div>
         </div>

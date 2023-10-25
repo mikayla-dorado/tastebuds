@@ -1,5 +1,5 @@
 export const getAllPosts = () => {
-    return fetch('http://localhost:8088/posts?_expand=cuisine&_userLikesId&_user').then(
+    return fetch('http://localhost:8088/posts?_expand=cuisine&_emebed=userLikesId&_expand=user').then(
         (res) => res.json()
     )
 }

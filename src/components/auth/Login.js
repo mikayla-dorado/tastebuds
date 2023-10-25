@@ -30,7 +30,7 @@ export const Login = () => {
 
   return (
     <div className="bg-gray-200 min-h-screen">
-    <main className="auth-container bg-orange-300">
+    <main className="auth-container bg-gradient-to-b from-orange-300 to-orange-100">
       <section>
         <form className="auth-form" onSubmit={handleLogin}>
           <h1 className="header">TasteBuds</h1>

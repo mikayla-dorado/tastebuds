@@ -3,7 +3,7 @@ import { useState } from "react"
 import { getAllPosts } from "../../services/getAllPosts"
 import { getAllCuisines } from "../../services/getAllCuisines"
 import { Post } from "./Post"
-import { FilterBar } from "./FilterBar" 
+import { FilterBar } from "./FilterBar"
 
 
 export const AllPosts = () => {
@@ -47,18 +47,20 @@ export const AllPosts = () => {
 
 
     return (
-        <div className="posts-container bg-gray-200">
-            {/* <h2 className="header text-center">All Posts</h2> */}
-            <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
+        <div>
             <div>
-                {filteredPosts.map((postObj) => {
-                    return (
-                        <Post post={postObj} key={postObj.id} />
-                    )
-                })}
+                <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
+            </div>
+            <div className="posts-container bg-gray-200">
+                <div className="">
+                    {filteredPosts.map((postObj) => {
+                        return (
+                            <Post post={postObj} key={postObj.id} />
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
 
 }
-//this will be the "home" view that shows all posts

@@ -1,11 +1,11 @@
 export const getUserLikes = () => {
-    return fetch("http://localhost:8088/posts?_expand=userLikesId").then(
+    return fetch("http://localhost:8088/posts?_embed=userLikes").then(
         (res) => res.json()
     )
 }
 
 export const getUserLikesByPostId = (postId) => {
-    return fetch(`http://localhost:8088/userLikes?postId=${postId}`).then(
+    return fetch(`http://localhost:8088/userLikes?_expand=postId=${postId}`).then(
         (res) => res.json()
     )
 }
@@ -15,7 +15,7 @@ export const saveUserPostLike = (post) => {
         userId: parseInt(localStorage.getItem("learning_user").slice(6, 7)),
         postId: post.id
     }
-    return fetch("http://localhost:8088/userPostLikes", {
+    return fetch("http://localhost:8088/userLikes", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -31,5 +31,14 @@ export const removeUserPostLike =(postId, userId) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify()
+    })
+}
+
+export const deleteLike = (like) => {
+    return fetch(`http://localhost:8088/userLikes/${like.id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
 }

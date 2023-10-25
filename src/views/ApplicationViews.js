@@ -5,9 +5,8 @@ import { NavBar } from "../components/nav/NavBar"
 import { PostDetails } from "../components/posts/PostDetails"
 import { NewPost } from "../components/posts/NewPost"
 import { MyProfile } from "../components/posts/MyProfile"
-import { EditPost } from "../components/posts/EditPost"
-
-
+import { EditPost } from "../components/forms/EditPost"
+import { Favorites } from "../components/posts/Favorites"
 
 
 export const ApplicationViews = () => {
@@ -38,9 +37,10 @@ export const ApplicationViews = () => {
         </Route>
         <Route path="newpost" element={<NewPost currentUser={currentUser} />} />
         <Route path="myprofile" element={<MyProfile currentUser={currentUser} />} />
+        <Route path="favorites" element={<Favorites currentUser={currentUser} />} />
         <Route path="editpost">
-                    <Route path=":postId" element={<EditPost currentUser={currentUser} />} />
-                </Route>
+          <Route path=":postId" element={<EditPost currentUser={currentUser} />} />
+        </Route>
       </Route>
     </Routes>
   )
