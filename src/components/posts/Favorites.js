@@ -2,97 +2,67 @@ import { useEffect, useState } from "react"
 import { getUserLikes, deleteLike } from "../../services/getUserLikes"
 import { getAllPosts } from "../../services/getAllPosts"
 import { Post } from "./Post"
+import NoFavorites from "../../images/no-favorites.jpg"
 
 
-export const Favorites = ({ currentUser, post }) => {
+export const Favorites = ({ currentUser }) => {
     const [userLikes, setUserLikes] = useState([])
-    const [posts, setPosts] = useState([])
-    const [filteredUserLikes, setFilteredUserLikes] = useState([])
-    const [favoritePosts, setFavoritePosts] = useState([])
-    const [loading, setLoading] = useState(true)
-
 
     const getAndSetUserLikes = () => {
-        getUserLikes().then((userLikesArray) => {
+        getUserLikes(currentUser.id).then((userLikesArray) => {
             setUserLikes(userLikesArray)
-            console.log(userLikes)
         })
     }
 
     useEffect(() => {
         getAndSetUserLikes()
-    }, [])
+    }, [currentUser])
 
-    useEffect(() => {
-        getAllPosts().then((postsArray) => {
-            setPosts(postsArray)
-            console.log(posts)
+
+    const handleDelete = (userLike) => {
+        deleteLike(userLike).then(() => {
+            setUserLikes((prevUserLikes) => {
+                return prevUserLikes.filter((like) => like.id !== userLike.id)
+            })
         })
-    }, [])
-
-    useEffect(() => {
-        const filterUserLikes = userLikes.filter(like =>
-            like.userId === currentUser.id)
-        setFilteredUserLikes(filterUserLikes)
-    }, [currentUser, userLikes])
-
-
-
-    useEffect(() => {
-        // const postIdArray = filteredUserLikes.map(item => item.postId)
-        // const filteredPosts = posts.filter(post => postIdArray.includes(post.id))
-        // setFavoritePosts(filteredPosts)
-        // setLoading(false)
-
-        const postIdsLikedByUser = filteredUserLikes.map(item => item.postId)
-        const likedPosts = posts.filter(post => postIdsLikedByUser.includes(post.id))
-        setFavoritePosts(likedPosts)
-        console.log(likedPosts)
-        console.log(postIdsLikedByUser)
-        setLoading(false)
-    }, [currentUser, filteredUserLikes, posts])
-
-    const handleDelete = (post) => {
-        const toDeleteLike = filteredUserLikes.find(like => like.postId === post.id)
-        deleteLike(toDeleteLike)
-        getAndSetUserLikes()
     }
 
-    //need to filter through userLikes since it is a join table and not a component of the posts themselves
 
-
-    console.log(posts) //array of objects filled with all post info
-    console.log(userLikes) //starts out as an empty array then becomes an array of objects with post and userlikes info
-    console.log(favoritePosts) //empty array
-
-
-    return (
-
-        <div className="favorites-container">
-            <div className="posts">
-                {loading ? (
-                    <p>Loading...</p>
-                ) : (
-                    favoritePosts.map((post) => (
-                        <div key={post.id}>
-                            <Post post={post} />
-                            <div className="delete-like">
-                                <button
-                                    className="delete-like-btn"
-                                    onClick={() => {
-                                        handleDelete(post);
-                                    }}
-                                >
-                                    Delete Favorite
-                                </button>
-                            </div>
+    return (<>
+        {userLikes.length === 0 ? (
+            <div>
+                <img src={NoFavorites} alt="pn cle" className="img h-96 rounded fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            </div>
+        ) : (
+            <div className="favorites-container">
+                {userLikes.map((userLike) => (
+                    <div className="posts" key={userLike.id}>
+                        <div className="fav-cuisine">
+                            {userLike?.post?.cuisine?.type}
+                        </div>
+                        <div className="fav-title">
+                            {userLike?.post?.title}
+                        </div>
+                        <div className="fav-description">
+                            {userLike?.post?.description}
+                        </div>
+                        <div className="delete-like">
+                            <button
+                                className="delete-like-btn border border-double my-2.5 px-1"
+                                onClick={() => {
+                                    handleDelete(userLike);
+                                }}
+                            >
+                                Delete Favorite
+                            </button>
                         </div>
 
-                    ))
+                    </div>
+
+                )
                 )}
             </div>
-        </div>
-        
+        )}
+        </>
     )
-
 }

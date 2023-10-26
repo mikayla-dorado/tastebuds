@@ -10,34 +10,44 @@ export const MyProfile = ({ currentUser }) => {
 
     const navigate = useNavigate()
 
-
     useEffect(() => {
         getAllPosts().then((postsArray) => {
             setPosts(postsArray)
         })
     }, [])
 
-    const handleDelete = (postObj) => {
-        deletePost(postObj)
+    const handleDelete = async (postObj) => {
+        try {
+            await deletePost(postObj)
+            // await refetchUserPosts()
+            setPosts((prevPosts) => prevPosts.filter(post => post.id !== postObj.id))
+        } catch (error) {
+            console.error('error deleting post:', error)
+        }
     }
 
     const handleEdit = (postObj) => {
         editPost(postObj)
     }
 
-    const refetchUserPosts = () => {
-        getPostByUserId(userId).then(data => setPosts(data))
+    const refetchUserPosts = async () => {
+        try {
+            const data = await getPostByUserId(userId)
+            setPosts(data)
+        } catch (error) {
+            console.error('error fetching user posts:', error)
+        }
     }
 
     return (
         <div className="text-center">
             <header className="text-center">My Posts</header>
-            <div className="myprofile border border-black bg-gradient-to-b from-orange-300 to-orange-100">
+            <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)
                     .map((post) => (
-                        <div key={post.id}>
+                        <div className="border border p-2 mb-4 bg-gradient-to-b from-orange-300 to-orange-100" key={post.id}>
                             <Link to={`/post/${post.id}`} className="title text-center underline">{post.title}</Link>
-                            <div className="postdetails-cuisine w-24 mx-2.5">
+                            <div className="w-24 mx-2.5">
                                 {post?.cuisine?.type}
                             </div>
                             <div>
@@ -53,14 +63,13 @@ export const MyProfile = ({ currentUser }) => {
                             <div>
                                 <button onClick={() => {
                                     handleDelete(post)
-                                    refetchUserPosts()
+                                    //refetchUserPosts()
                                 }}
-                                    className="mypost-delete border rounded bg-gray-100">Delete Post</button>
+                                    className="mypost-delete border rounded bg-gray-100 w-20 h-12">Delete Post</button>
                             </div>
-
                         </div>
                     ))}
-            </div>
+            </article>
             <div>
                 <button onClick={() => {
                     navigate(`/newpost`)
@@ -69,5 +78,6 @@ export const MyProfile = ({ currentUser }) => {
                 </button>
             </div>
         </div>
+
     )
 }

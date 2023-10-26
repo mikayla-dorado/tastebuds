@@ -1,5 +1,5 @@
-export const getUserLikes = () => {
-    return fetch(`http://localhost:8088/userLikes/?userId=1&_expand=post&_expand=user`).then(
+export const getUserLikes = (userId) => {
+    return fetch(`http://localhost:8088/userLikes/?userId=${userId}&_expand=post&_expand=user`).then(
         (res) => res.json()
     )
 }
@@ -11,9 +11,10 @@ export const getUserLikesByPostId = (postId) => {
 }
 
 export const saveUserPostLike = (post) => {
+    console.log(post)
     const userPostLike = {
-        userId: parseInt(localStorage.getItem("learning_user").slice(6, 7)),
-        postId: post.id
+        userId: parseInt(localStorage.getItem("tastebud_user").slice(6, 7)),
+        postId: post
     }
     return fetch("http://localhost:8088/userLikes", {
         method: "POST",

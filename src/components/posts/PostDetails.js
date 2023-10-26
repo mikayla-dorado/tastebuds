@@ -48,7 +48,7 @@ export const PostDetails = ({ currentUser }) => {
           } else {
             return (
               <button className="like-btn border-double rounded w-24 bg-cyan-500 hover:bg-cyan-600 text-gray-100" onClick={handleLikedPost}>
-                Like Post
+                Favorite Post
               </button>
             );
           }
@@ -58,8 +58,9 @@ export const PostDetails = ({ currentUser }) => {
         if (!isLiked) {
             saveUserPostLike(post.id, currentUser.id)
             setIsLiked(true)
+            navigate('/favorites')
         } else {
-            removeUserPostLike(post.id, currentUser.id)
+            //removeUserPostLike(post.id, currentUser.id)
             setIsLiked(false)
         }
     }
@@ -81,6 +82,9 @@ export const PostDetails = ({ currentUser }) => {
                 </div>
                 <div className="postdetails-cuisine text-gray-500">
                     {post?.cuisine?.type}
+                </div>
+                <div>
+                  <img src={post?.imageURL} className="w-32 w-64 h-64 mx-auto" />
                 </div>
                 <div>
                     <div className="text-center mt-1">
