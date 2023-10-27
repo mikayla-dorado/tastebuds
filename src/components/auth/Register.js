@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { createUser, getUserByEmail } from "../../services/userService"
+import registerImg from "../../images/register-img.jpg"
 
 
 export const Register = (props) => {
@@ -50,6 +51,7 @@ export const Register = (props) => {
       }
     
       return (
+        <div className="reg-bg min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${registerImg})` }}>
         <main className="auth-container">
           <form className="auth-form" onSubmit={handleRegister}>
             <h1 className="header">Learning Moments</h1>
@@ -79,12 +81,13 @@ export const Register = (props) => {
                 />
               </div>
             </fieldset>
-            <fieldset className="auth-fieldset">
+            <fieldset className="auth-fieldset border px-1 rounded">
               <div>
                 <button type="submit">Register</button>
               </div>
             </fieldset>
           </form>
         </main>
+        </div>
       )
     }

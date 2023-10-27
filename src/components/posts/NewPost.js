@@ -9,6 +9,7 @@ export const NewPost = ({ currentUser }) => {
     const [body, setBody] = useState("")
     const [description, setDescription] = useState("")
     const [ingredients, setIngredients] = useState("")
+    const [imageURL, setimageURL] = useState("")
     const [cuisines, setCuisines] = useState([])
     const [selectedCuisineId, setSelectedCuisineId] = useState({})
 
@@ -30,6 +31,11 @@ export const NewPost = ({ currentUser }) => {
     }, [description])
 
     useEffect(() => {
+        if (imageURL)
+        setimageURL(imageURL)
+    },[imageURL])
+
+    useEffect(() => {
         getAllCuisines().then((cuisinesArray) => {
             setCuisines(cuisinesArray)
         })
@@ -42,6 +48,8 @@ export const NewPost = ({ currentUser }) => {
         const newPost = await createNewPost({
             title: title,
             body: body,
+            description: description,
+            imageURL: imageURL,
             cuisineId: selectedCuisineId,
             userId: currentUser.id
         })
@@ -107,6 +115,17 @@ export const NewPost = ({ currentUser }) => {
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <h2>Image: </h2>
+                    <input
+                        type="text"
+                        id="imageURL"
+                        name="imageURL"
+                        value={imageURL}
+                        onChange={(e) => setimageURL(e.target.value)}
                         required
                     />
                 </div>

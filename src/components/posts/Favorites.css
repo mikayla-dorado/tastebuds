@@ -1,0 +1,19 @@
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    height: 100px;
+    width: 600px;
+    justify-content: center;
+    background-color: rgb(243, 226, 205);
+}
+
+.favorites-container {
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.delete-like-btn{
+  background-color: rgb(158, 68, 26);
+}

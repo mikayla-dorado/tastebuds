@@ -4,6 +4,7 @@ import { getAllPosts } from "../../services/getAllPosts"
 import { getAllCuisines } from "../../services/getAllCuisines"
 import { Post } from "./Post"
 import { FilterBar } from "./FilterBar"
+import postsImg from "../../images/posts-bg.jpg"
 
 
 export const AllPosts = () => {
@@ -47,11 +48,11 @@ export const AllPosts = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className=""style={{ backgroundImage: `url(${postsImg})` }}>
+            
                 <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
-            </div>
-            <div className="posts-container bg-gray-200">
+            
+            <div className="posts-container" >
                 <div className="">
                     {filteredPosts.map((postObj) => {
                         return (

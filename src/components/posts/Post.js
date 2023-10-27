@@ -25,7 +25,7 @@ export const Post = ({  post }) => {
 
 
     return (
-        <div className="individual-post bg-gradient-to-b bg-orange-200 border text-gray-700 w-auto">
+        <div className="individual-post border text-gray-700 w-auto">
             <div className="allposts-title underline">
                 <Link to={`/post/${post.id}`} >{post?.title} </Link>
             </div>

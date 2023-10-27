@@ -40,18 +40,18 @@ export const PostDetails = ({ currentUser }) => {
     const renderLikeButton = () => {
         if (isPostByCurrentUser()) {
             return (
-             null
+                null
             );
-          }
-          if (isPostLiked()) {
+        }
+        if (isPostLiked()) {
             return null;
-          } else {
+        } else {
             return (
-              <button className="like-btn border-double rounded w-24 bg-cyan-500 hover:bg-cyan-600 text-gray-100" onClick={handleLikedPost}>
-                Favorite Post
-              </button>
+                <button className="like-btn border-double rounded w-24  hover:bg-red-400 text-gray-100" onClick={handleLikedPost}>
+                    Favorite Post
+                </button>
             );
-          }
+        }
     }
 
     const handleLikedPost = () => {
@@ -72,10 +72,11 @@ export const PostDetails = ({ currentUser }) => {
 
     return (
         <div className="postdetails-container min-h-screen">
-            <div className="postdetails-title text-center">
-                {post?.title}
-            </div>
+
             <div className="details bg-orange-100">
+                <div className="postdetails-title text-center text-xl">
+                    {post?.title}
+                </div>
                 <div className="postdetails-author">
                     <span>Written by: </span>
                     {post?.user?.name}
@@ -84,7 +85,7 @@ export const PostDetails = ({ currentUser }) => {
                     {post?.cuisine?.type}
                 </div>
                 <div>
-                  <img src={post?.imageURL} className="w-32 w-64 h-64 mx-auto" />
+                    <img src={post?.imageURL} className="w-32 w-64 h-64 mx-auto border mb-2.5" />
                 </div>
                 <div>
                     <div className="text-center mt-1">
@@ -110,10 +111,6 @@ export const PostDetails = ({ currentUser }) => {
             <div>
                 {renderLikeButton()}
             </div>
-            {/* {isPostByCurrentUser() && (
-                <button onClick={() => navigate(`/editpost/${post.id}`)} className="editpost-btn border-double w-24 bg-cyan-500 hover:bg-cyan-600 text-gray-100">Edit Post</button>
-            )} */}
-
         </div>
     )
 }

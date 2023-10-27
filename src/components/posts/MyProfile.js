@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { deletePost, editPost, getAllPosts, getPostByUserId } from "../../services/getAllPosts"
 import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
+import myImg from "../../images/my-img.jpg"
 
 
 export const MyProfile = ({ currentUser }) => {
@@ -40,17 +41,19 @@ export const MyProfile = ({ currentUser }) => {
     }
 
     return (
-        <div className="text-center">
+        <div className="text-center min-h-screen" style={{ backgroundImage: `url(${myImg})` }}>
             <header className="text-center">My Posts</header>
             <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)
                     .map((post) => (
-                        <div className="border border p-2 mb-4 bg-gradient-to-b from-orange-300 to-orange-100" key={post.id}>
-                            <Link to={`/post/${post.id}`} className="title text-center underline">{post.title}</Link>
-                            <div className="w-24 mx-2.5">
+                        <div className="my-post border border rounded p-2 mb-4" key={post.id}>
+                            <div className="mypost-cuisine">
                                 {post?.cuisine?.type}
                             </div>
                             <div>
+                            <Link to={`/post/${post.id}`} className="title underline">{post.title}</Link>
+                            </div>
+                            <div className="desc my-3">
                                 {post?.description}
                             </div>
                             <div>
@@ -58,14 +61,13 @@ export const MyProfile = ({ currentUser }) => {
                                     handleEdit(post)
                                     refetchUserPosts()
                                     navigate(`/editpost/${post.id}`)
-                                }} className="editpost rounded bg-gray-100">Edit Post</button>
+                                }} className="editpost rounded bg-gray-100 hover:bg-red-400">Edit Post</button>
                             </div>
                             <div>
                                 <button onClick={() => {
                                     handleDelete(post)
-                                    //refetchUserPosts()
                                 }}
-                                    className="mypost-delete border rounded bg-gray-100 w-20 h-12">Delete Post</button>
+                                    className="mypost-delete border rounded bg-gray-100 w-20 h-12 hover:bg-red-400">Delete Post</button>
                             </div>
                         </div>
                     ))}
@@ -74,10 +76,9 @@ export const MyProfile = ({ currentUser }) => {
                 <button onClick={() => {
                     navigate(`/newpost`)
                 }}
-                    className="newpost-btn my-2.5 border border mx-4 bg-cyan-500 hover:bg-cyan-600">Create a New Post
+                    className="newpost-btn my-2.5 border border rounded mx-4 text-gray-100 hover:bg-red-400">Create a New Post
                 </button>
             </div>
         </div>
-
     )
 }

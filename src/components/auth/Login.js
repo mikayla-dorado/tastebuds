@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { getUserByEmail } from "../../services/userService"
+import backgroundImage from "../../images/bg-img.jpg"
 
 export const Login = () => {
   const [email, set] = useState("")
@@ -29,8 +30,8 @@ export const Login = () => {
   }
 
   return (
-    <div className="bg-gray-200 min-h-screen">
-    <main className="auth-container bg-gradient-to-b from-orange-300 to-orange-100">
+    <div className="min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <main className="auth-container">
       <section>
         <form className="auth-form" onSubmit={handleLogin}>
           <h1 className="header">TasteBuds</h1>
@@ -50,12 +51,12 @@ export const Login = () => {
           </fieldset>
           <fieldset className="auth-fieldset">
             <div >
-              <button className="signin-btn bg-gray-100" type="submit">Sign in</button>
+              <button className="signin-btn bg-gray-100 rounded" type="submit">Sign in</button>
             </div>
           </fieldset>
         </form>
       </section>
-      <section className="register-link">
+      <section className="register-link underline">
         <Link to="/register">Not a member yet?</Link>
       </section>
     </main>
