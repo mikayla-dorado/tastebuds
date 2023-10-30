@@ -25,7 +25,7 @@ export const Post = ({  post }) => {
 
 
     return (
-        <div className="individual-post border text-gray-700 w-auto">
+        <div className="individual-post text-gray-700 w-auto bg-orange-200">
             <div className="allposts-title underline">
                 <Link to={`/post/${post.id}`} >{post?.title} </Link>
             </div>
@@ -38,4 +38,6 @@ export const Post = ({  post }) => {
         </div>
     )
 }
+
+
 

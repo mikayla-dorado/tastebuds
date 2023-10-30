@@ -65,15 +65,8 @@ export const EditPost = () => {
     }
 
     const handleInputChange = (event) => {
-        // const stateCopy = { ...post }
-        // if (event.target.name === "cuisineId") {
-        //     stateCopy[event.target.name] = parseInt(event.target.value)
-        // } else {
-        //     stateCopy[event.target.name] = event.target.value
-        // }
-        // setPost(stateCopy)
         setPost((prevState) => {
-            const updatedPost = {...prevState}
+            const updatedPost = { ...prevState }
             if (event.target.name === 'cuisineId') {
                 updatedPost[event.target.name] = parseInt(event.target.value)
             } else {
@@ -85,13 +78,13 @@ export const EditPost = () => {
 
     return (
         <div>
+            <h2 className="head text-center">Edit Post</h2>
+            <div className="border rounded-md flex justify-center">
             <form>
-                <h2 className="head text-center">Edit Post</h2>
-
                 <div>
                     <h3 className="mt-3">Title: </h3>
                     <input
-                        className="title-input mb-3"
+                        className="title-input mb-3 border rounded"
                         required
                         value={post.title ? post.title : ""}
                         name="title"
@@ -102,7 +95,7 @@ export const EditPost = () => {
                 <div>
                     <h3 className="">Body: </h3>
                     <input
-                        className="body-input mb-3"
+                        className="body-input mb-3 border rounded"
                         required
                         value={post.body ? post.body : ""}
                         name="body"
@@ -113,7 +106,7 @@ export const EditPost = () => {
                 <div>
                     <h3>Ingredients: </h3>
                     <input
-                        className="ingredients-input mb-3"
+                        className="ingredients-input mb-3 border rounded"
                         required
                         value={post.ingredients ? post.ingredients : ""}
                         name="ingredients"
@@ -124,7 +117,7 @@ export const EditPost = () => {
                 <div>
                     <h3>Description: </h3>
                     <input
-                        className="description-input mb-3"
+                        className="description-input mb-3 border rounded"
                         required
                         value={post.description ? post.description : ""}
                         name="description"
@@ -133,9 +126,10 @@ export const EditPost = () => {
                     />
                 </div>
                 <div>
-                    <button className="savechagnes-btn border border px-1" onClick={handleSave}>Save Changes</button>
+                    <button className="savechagnes-btn border px-1 mb-5" onClick={handleSave}>Save Changes</button>
                 </div>
             </form>
+            </div>
         </div>
     )
 

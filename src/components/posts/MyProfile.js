@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { deletePost, editPost, getAllPosts, getPostByUserId } from "../../services/getAllPosts"
 import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
-import myImg from "../../images/my-img.jpg"
+import border from "../../images/border.jpg"
 
 
 export const MyProfile = ({ currentUser }) => {
@@ -41,12 +41,12 @@ export const MyProfile = ({ currentUser }) => {
     }
 
     return (
-        <div className="text-center min-h-screen" style={{ backgroundImage: `url(${myImg})` }}>
+        <div className="text-center min-h-screen bg-cover" style={{ backgroundImage: `url(${border})` }}>
             <header className="text-center">My Posts</header>
             <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)
                     .map((post) => (
-                        <div className="my-post border border rounded p-2 mb-4" key={post.id}>
+                        <div className="my-post border border rounded p-2 mb-4 bg-orange-200" key={post.id}>
                             <div className="mypost-cuisine">
                                 {post?.cuisine?.type}
                             </div>
@@ -76,7 +76,7 @@ export const MyProfile = ({ currentUser }) => {
                 <button onClick={() => {
                     navigate(`/newpost`)
                 }}
-                    className="newpost-btn my-2.5 border border rounded mx-4 text-gray-100 hover:bg-red-400">Create a New Post
+                    className="newpost-btn my-2.5 border border rounded mx-4 text-gray-100 bg-emerald-400 hover:bg-emerald-600">Create a New Post
                 </button>
             </div>
         </div>

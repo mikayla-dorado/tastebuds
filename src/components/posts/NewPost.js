@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getAllCuisines } from "../../services/getAllCuisines"
 import { createNewPost } from "../../services/getAllPosts"
+import bg from "../../images/create.jpg"
 
 
 export const NewPost = ({ currentUser }) => {
@@ -57,18 +58,18 @@ export const NewPost = ({ currentUser }) => {
     }
 
     return (
-        <div>
-            <header className="text-center">Create a New Post</header>
-
-            <form onSubmit={handleSave}>
+        <div className="min-h-screen bg-cover" style={{ backgroundImage: `url(${bg})` }}>
+            <header className="text-center" >Create a New Post</header>
+            <div className="border rounded-md flex justify-center mt-5 bg-sky-100">
+            <form onSubmit={handleSave} className="">
                 
                 <select
                     name="cuisines"
                     id="cuisines"
                     onChange={(e) => setSelectedCuisineId(e.target.value)}
                     value={selectedCuisineId}
-                >
-                    <option>Select Cuisine</option>
+                    className="border rounded mt-5 ml-9">
+                    <option className="border ">Select Cuisine</option>
 
                     {cuisines.map((cuisine) => {
                         return (<option value={cuisine.id} key={cuisine.id}>{cuisine.type}</option>)
@@ -83,7 +84,7 @@ export const NewPost = ({ currentUser }) => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         required
-                    />
+                   className="border rounded" />
                 </div>
                 <div>
                     <h2>Description: </h2>
@@ -94,7 +95,7 @@ export const NewPost = ({ currentUser }) => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
-                    />
+                        className="border rounded"/>
                 </div>
                 <div>
                     <h2>Ingredients: </h2>
@@ -105,7 +106,7 @@ export const NewPost = ({ currentUser }) => {
                         value={ingredients}
                         onChange={(e) => setIngredients(e.target.value)}
                         required
-                    />
+                        className="border rounded"/>
                 </div>
                 <div>
                     <h2>Body: </h2>
@@ -116,7 +117,7 @@ export const NewPost = ({ currentUser }) => {
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                         required
-                    />
+                        className="border rounded"/>
                 </div>
                 <div>
                     <h2>Image: </h2>
@@ -127,14 +128,16 @@ export const NewPost = ({ currentUser }) => {
                         value={imageURL}
                         onChange={(e) => setimageURL(e.target.value)}
                         required
-                    />
+                        className="border rounded"/>
                 </div>
                 <div>
-                    <button type="save" onClick={handleSave} className="border border bg-gray-100">
+                    <button type="save" onClick={handleSave} className="border border bg-gray-100 mt-2.5 mb-5 ml-11">
                         Post Recipe
                     </button>
                 </div>
+                
             </form>
+            </div>
         </div>
 
     )

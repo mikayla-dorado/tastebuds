@@ -5,7 +5,6 @@
     height: 100px;
     width: 600px;
     justify-content: center;
-    background-color: rgb(243, 226, 205);
 }
 
 .favorites-container {
@@ -15,5 +14,5 @@
 }
 
 .delete-like-btn{
-  background-color: rgb(158, 68, 26);
+  background-color: white;
 }

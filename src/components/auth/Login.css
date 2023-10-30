@@ -1,10 +1,12 @@
 .auth-container {
-    border: 1px solid gray;
+    border: 1px solid black;
+    border-width: thick;
     margin: 3rem 5rem ;
     margin-top: 200px;
     padding: 2rem;
     border-radius: 1rem;
-    background-color: rgb(212, 184, 147);
+    /* background-color: rgb(212, 184, 147); */
+    background-color: rgb(247, 250, 253);
   }
   
   .header {

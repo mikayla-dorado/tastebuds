@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
             return null;
         } else {
             return (
-                <button className="like-btn border-double rounded w-24  hover:bg-red-400 text-gray-100" onClick={handleLikedPost}>
+                <button className="like-btn border-double rounded w-24 bg-emerald-400 hover:bg-emerald-600 text-gray-100" onClick={handleLikedPost}>
                     Favorite Post
                 </button>
             );
@@ -71,7 +71,7 @@ export const PostDetails = ({ currentUser }) => {
 
 
     return (
-        <div className="postdetails-container min-h-screen">
+        <div className="postdetails-container min-h-screen mt-5">
 
             <div className="details bg-orange-100">
                 <div className="postdetails-title text-center text-xl">
@@ -81,7 +81,7 @@ export const PostDetails = ({ currentUser }) => {
                     <span>Written by: </span>
                     {post?.user?.name}
                 </div>
-                <div className="postdetails-cuisine text-gray-500">
+                <div className="postdetails-cuisine">
                     {post?.cuisine?.type}
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export const PostDetails = ({ currentUser }) => {
                     <div className="text-center mt-1">
                         <span>Ingredients:</span>
                     </div>
-                    <div>
+                    <div className="pl-3">
                         {post?.ingredients && post?.ingredients.split('. ').map((item, index) => (
                             <div key={index}>{item}</div>
                         ))}
@@ -101,7 +101,7 @@ export const PostDetails = ({ currentUser }) => {
                     <div className="text-center">
                         <span>Directions:</span>
                     </div>
-                    <div className="my-2.5">
+                    <div className="my-2.5 pl-3">
                         {post?.body && post?.body.split('. ').map((item, index) => (
                             <div key={index}>{item}</div>
                         ))}

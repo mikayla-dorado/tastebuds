@@ -3,10 +3,11 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
 
     return (
         <div className="filter-by-cuisine">
-            <div className="alltopics-dropdown w-32">
+            <div className="alltopics-dropdown w-32 bg-gray-300">
                 <select
                     name="cuisines"
                     id="cuisines"
+                    className="bg-gray-300"
                     onChange={(event) => {
                         if (event.target.value === "0") {
                             setChosenCuisine(null)
@@ -22,11 +23,11 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
                     })}
                 </select>
             </div>
-            <div className="search-term w-52">
+            <div className="search-term w-52 bg-gray-300">
                 <input
                     type="text"
                     placeholder="Search Posts"
-                    className="search-posts "
+                    className="search-posts bg-gray-300"
                     onChange={(event) => {
                         setSearchTerm(event.target.value)
                     }}

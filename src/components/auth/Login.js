@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { getUserByEmail } from "../../services/userService"
-import backgroundImage from "../../images/bg-img.jpg"
+import picnic2 from "../../images/picnic2.webp"
 
 export const Login = () => {
   const [email, set] = useState("")
@@ -30,7 +30,7 @@ export const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${picnic2})` }}>
     <main className="auth-container">
       <section>
         <form className="auth-form" onSubmit={handleLogin}>
