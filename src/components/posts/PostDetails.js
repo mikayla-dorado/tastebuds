@@ -77,11 +77,11 @@ export const PostDetails = ({ currentUser }) => {
                 <div className="postdetails-title text-center text-xl">
                     {post?.title}
                 </div>
-                <div className="postdetails-author">
+                <div className="postdetails-author font-bold">
                     <span>Written by: </span>
                     {post?.user?.name}
                 </div>
-                <div className="postdetails-cuisine">
+                <div className="postdetails-cuisine font-bold">
                     {post?.cuisine?.type}
                 </div>
                 <div>

@@ -6,7 +6,7 @@
     width: 100%;
     padding: 0.5rem;
     justify-content: center;
-    background-color: rgb(140, 196, 233);
+    background-color: rgb(174, 209, 233);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: larger;
   }
@@ -31,3 +31,4 @@
   .navbar-link:hover {
     color: var(--primary);
   }
+  

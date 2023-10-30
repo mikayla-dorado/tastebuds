@@ -4,25 +4,19 @@ body {
 
 .individual-post {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     margin-top: 10%;
     border: solid black;
     border-radius: 5px;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 50px;
     text-align: center;
-    padding-left: 35%;
-    /* background-color: rgb(150, 187, 221); */
-    
+
 }
 
 .post-cuisine {
-    border: solid rgba(0, 0, 0, 0.795);
-    margin-right: 100%;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-right: auto; 
+   
 
 }
 
@@ -39,8 +33,12 @@ body {
 
 .post-description {
     border: solid rgba(0, 0, 0, 0.795);
-    margin-top: 10px;
-
+    border: double;
+    border-width: thick;
+    margin-top: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .postdetails-title {
@@ -68,9 +66,8 @@ body {
 }
 
 .postdetails-cuisine {
-    margin-left: 700px;
-    text-align: center;
     margin-bottom: 2%;
+    margin-left: 2%;
 }
 
 .details {
@@ -78,7 +75,11 @@ body {
 }
 
 .postdetails-author {
-    /* margin-top: 2%; */
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10%;
 }
 
 .editpost-btn {
@@ -130,7 +131,7 @@ body {
     /* background-color: rgb(158, 68, 26); */
 }
 
-.mypost-delete{
+.mypost-delete {
     margin-top: 30px;
     margin-bottom: 15px;
     margin-left: 40%;
@@ -142,10 +143,8 @@ body {
     /* background-color: rgb(216, 194, 164); */
 }
 
-.title {
-  
-}
+.title {}
 
-.mypost-cuisine{
+.mypost-cuisine {
     margin-right: 130px;
 }

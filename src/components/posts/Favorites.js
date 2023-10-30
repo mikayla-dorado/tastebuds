@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUserLikes, deleteLike } from "../../services/getUserLikes"
 import NoFavorites from "../../images/no-favorites.jpg"
-import fav from "../../images/realfav.jpg"
+import fav from "../../images/picnic2.webp"
 import "./Favorites.css"
 
 
@@ -36,11 +36,11 @@ export const Favorites = ({ currentUser }) => {
         ) : (
             <div className="favorites-container min-h-screen bg-cover" style={{ backgroundImage: `url(${fav})` }}>
                 {userLikes.map((userLike) => (
-                    <div className="posts bg-sky-200 border rounded" key={userLike.id}>
+                    <div className="posts bg-orange-200 border rounded-md text-lg" key={userLike.id}>
                         <div className="fav-cuisine">
                             {userLike?.post?.cuisine?.type}
                         </div>
-                        <div className="fav-title">
+                        <div className="fav-title ">
                             {userLike?.post?.title}
                         </div>
                         <div className="fav-description">
@@ -48,12 +48,12 @@ export const Favorites = ({ currentUser }) => {
                         </div>
                         <div className="delete-like">
                             <button
-                                className="delete-like-btn border border-double rounded my-2.5 px-1 hover:bg-red-400"
+                                className="delete-like-btn pt-1.5"
                                 onClick={() => {
                                     handleDelete(userLike);
                                 }}
                             >
-                                Delete Favorite
+                                <i className="fa-solid fa-trash" />
                             </button>
                         </div>
 

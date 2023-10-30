@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getAllCuisines } from "../../services/getAllCuisines"
 import { createNewPost } from "../../services/getAllPosts"
-import bg from "../../images/create.jpg"
+import bg from "../../images/gpicnic.webp"
 
 
 export const NewPost = ({ currentUser }) => {
@@ -131,7 +131,7 @@ export const NewPost = ({ currentUser }) => {
                         className="border rounded"/>
                 </div>
                 <div>
-                    <button type="save" onClick={handleSave} className="border border bg-gray-100 mt-2.5 mb-5 ml-11">
+                    <button type="save" onClick={handleSave} className="border rounded bg-orange-200 mt-2.5 mb-5 ml-11 px-1">
                         Post Recipe
                     </button>
                 </div>

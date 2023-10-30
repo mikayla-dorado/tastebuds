@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-import { getUserLikes, getUserLikesByPostId, removeUserPostLike, saveUserPostLike } from "../../services/getUserLikes"
-import { Link, useParams } from "react-router-dom"
+import { getUserLikes } from "../../services/getUserLikes"
+import { Link} from "react-router-dom"
 import "./Post.css"
-import { getPostById } from "../../services/getAllPosts"
 
 
 export const Post = ({  post }) => {
@@ -25,7 +24,10 @@ export const Post = ({  post }) => {
 
 
     return (
-        <div className="individual-post text-gray-700 w-auto bg-orange-200">
+        <div className="individual-post w-auto bg-orange-200">
+            <div>
+
+            </div>
             <div className="allposts-title underline">
                 <Link to={`/post/${post.id}`} >{post?.title} </Link>
             </div>

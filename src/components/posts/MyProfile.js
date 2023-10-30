@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { deletePost, editPost, getAllPosts, getPostByUserId } from "../../services/getAllPosts"
 import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
-import border from "../../images/border.jpg"
+import border from "../../images/picnic2.webp"
 
 
 export const MyProfile = ({ currentUser }) => {
@@ -51,7 +51,7 @@ export const MyProfile = ({ currentUser }) => {
                                 {post?.cuisine?.type}
                             </div>
                             <div>
-                            <Link to={`/post/${post.id}`} className="title underline">{post.title}</Link>
+                                <Link to={`/post/${post.id}`} className="title underline">{post.title}</Link>
                             </div>
                             <div className="desc my-3">
                                 {post?.description}
@@ -61,13 +61,13 @@ export const MyProfile = ({ currentUser }) => {
                                     handleEdit(post)
                                     refetchUserPosts()
                                     navigate(`/editpost/${post.id}`)
-                                }} className="editpost rounded bg-gray-100 hover:bg-red-400">Edit Post</button>
+                                }} className="pr-2"><i className="fa-solid fa-pen-to-square" /></button>
                             </div>
                             <div>
                                 <button onClick={() => {
                                     handleDelete(post)
                                 }}
-                                    className="mypost-delete border rounded bg-gray-100 w-20 h-12 hover:bg-red-400">Delete Post</button>
+                                   ><i className="fa-solid fa-trash" /></button>
                             </div>
                         </div>
                     ))}

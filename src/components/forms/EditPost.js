@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { editPost, getPostById } from "../../services/getAllPosts"
+import bg from "../../images/gpicnic.webp"
 
 
 export const EditPost = () => {
@@ -77,9 +78,9 @@ export const EditPost = () => {
     }
 
     return (
-        <div>
+        <div className="min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
             <h2 className="head text-center">Edit Post</h2>
-            <div className="border rounded-md flex justify-center">
+            <div className="border rounded-md flex justify-center bg-sky-100">
             <form>
                 <div>
                     <h3 className="mt-3">Title: </h3>
@@ -126,7 +127,7 @@ export const EditPost = () => {
                     />
                 </div>
                 <div>
-                    <button className="savechagnes-btn border px-1 mb-5" onClick={handleSave}>Save Changes</button>
+                    <button className="savechagnes-btn border px-1 mb-5 bg-emerald-400 hover:bg-emerald-600" onClick={handleSave}>Save Changes</button>
                 </div>
             </form>
             </div>

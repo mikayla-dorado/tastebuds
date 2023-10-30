@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { createUser, getUserByEmail } from "../../services/userService"
-import registerImg from "../../images/register-img.jpg"
+import registerImg from "../../images/gpicnic.webp"
 
 
 export const Register = (props) => {

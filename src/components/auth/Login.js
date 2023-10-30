@@ -30,8 +30,8 @@ export const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${picnic2})` }}>
-    <main className="auth-container">
+    <div className="min-h-screen bg-cover pt-8 " style={{ backgroundImage: `url(${picnic2})` }}>
+    <main className="auth-container bg-orange-200">
       <section>
         <form className="auth-form" onSubmit={handleLogin}>
           <h1 className="header">TasteBuds</h1>
