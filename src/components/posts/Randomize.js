@@ -1,35 +1,42 @@
-// import { useState } from "react"
-// import { Post } from "./Post"
-// import { Link } from "react-router-dom"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
-// export const Randomize = ({recipes, post}) => {
-// const [randomRecipe, setRandomRecipe] = useState(null)
-
-// const handleRandomize = () => {
-//     const randomIndex = Math.floor(Math.random() * recipes.length)
-//     setRandomRecipe(recipes[randomIndex])
-// }
+export const Randomize = ({ posts, onRandomize }) => {
+    const [randomPost, setRandomPost] = useState(null)
 
 
-// return (
-//     <div>
-//         <button onClick={handleRandomize}>Random Recipe Generator</button>
-//         {randomRecipe && (
-//             <div>
-//                 <div className="individual-post w-auto bg-orange-200">
-//             <div className="allposts-title underline">
-//                 <Link to={`/post/${post.id}`} >{post?.title} </Link>
-//             </div>
-//             <div className="post-cuisine ">
-//                 {post?.cuisine?.type}
-//             </div>
-//             <div className="post-description border-double w-60">
-//                 {post?.description}
-//             </div>
-//         </div>
-//                 </div>
-//         )}
-//     </div>
-// )
-// }
+    const getRandomPost = () => {
+        if (posts.length === 0) {
+            return null;
+        }
+        const randomIndex = Math.floor(Math.random() * posts.length);
+        return posts[randomIndex];
+    }
+
+    const handleRandomize = () => {
+        const randomPost = getRandomPost()
+        setRandomPost(randomPost)
+        onRandomize(randomPost)
+    }
+
+    return (
+        <div>
+            <button onClick={handleRandomize}
+                className=" bg-lime-600 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Random Recipe Generator</button>
+            {randomPost && (
+                <div>
+                    <div className="individual-post w-auto bg-orange-200">
+                        <div className="allposts-title underline">
+                            <Link to={`/post/${randomPost.id}`}>{randomPost?.title}</Link>
+                        </div>
+                        <div className="post-cuisine">{randomPost?.cuisine?.type}</div>
+                        <div className="post-description border-double w-60">
+                            {randomPost?.description}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    )
+}

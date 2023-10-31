@@ -81,55 +81,55 @@ export const EditPost = () => {
         <div className="min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
             <h2 className="head text-center">Edit Post</h2>
             <div className="border rounded-md flex justify-center bg-sky-100">
-            <form>
-                <div>
-                    <h3 className="mt-3">Title: </h3>
-                    <input
-                        className="title-input mb-3 border rounded"
-                        required
-                        value={post.title ? post.title : ""}
-                        name="title"
-                        style={{ width: '400px', height: '70px' }}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div>
-                    <h3 className="">Body: </h3>
-                    <input
-                        className="body-input mb-3 border rounded"
-                        required
-                        value={post.body ? post.body : ""}
-                        name="body"
-                        style={{ width: '700px', height: '100px' }}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div>
-                    <h3>Ingredients: </h3>
-                    <input
-                        className="ingredients-input mb-3 border rounded"
-                        required
-                        value={post.ingredients ? post.ingredients : ""}
-                        name="ingredients"
-                        style={{ width: '700px', height: '100px' }}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div>
-                    <h3>Description: </h3>
-                    <input
-                        className="description-input mb-3 border rounded"
-                        required
-                        value={post.description ? post.description : ""}
-                        name="description"
-                        style={{ width: '700px', height: '100px' }}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div>
-                    <button className="savechagnes-btn border px-1 mb-5 bg-emerald-400 hover:bg-emerald-600" onClick={handleSave}>Save Changes</button>
-                </div>
-            </form>
+                <form>
+                    <div>
+                        <h3 className="mt-3">Title: </h3>
+                        <input
+                            className="title-input mb-3 border rounded"
+                            required
+                            value={post.title ? post.title : ""}
+                            name="title"
+                            style={{ width: '400px', height: '70px' }}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div>
+                        <h3 className="">Body: </h3>
+                        <input
+                            className="body-input mb-3 border rounded"
+                            required
+                            value={post.body ? post.body : ""}
+                            name="body"
+                            style={{ width: '700px', height: '100px' }}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div>
+                        <h3>Ingredients: </h3>
+                        <input
+                            className="ingredients-input mb-3 border rounded"
+                            required
+                            value={post.ingredients ? post.ingredients : ""}
+                            name="ingredients"
+                            style={{ width: '700px', height: '100px' }}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div>
+                        <h3>Description: </h3>
+                        <input
+                            className="description-input mb-3 border rounded"
+                            required
+                            value={post.description ? post.description : ""}
+                            name="description"
+                            style={{ width: '700px', height: '100px' }}
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                    <div>
+                        <button className="savechagnes-btn border px-1 mb-5 bg-lime-600 hover:bg-emerald-600" onClick={handleSave}>Save Changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     )

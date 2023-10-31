@@ -5,6 +5,7 @@ import { getAllCuisines } from "../../services/getAllCuisines"
 import { Post } from "./Post"
 import { FilterBar } from "./FilterBar"
 import picnic from "../../images/picnic2.webp"
+import { Randomize } from "./Randomize"
 
 
 export const AllPosts = () => {
@@ -13,6 +14,7 @@ export const AllPosts = () => {
     const [chosenCuisine, setChosenCuisine] = useState(null)
     const [searchTerm, setSearchTerm] = useState("")
     const [allCuisines, setAllCuisines] = useState([])
+    const [randomPost, setRandomPost] = useState(null)
 
 
     useEffect(() => {
@@ -46,23 +48,33 @@ export const AllPosts = () => {
         }
     }, [chosenCuisine, posts])
 
-//style={{ backgroundImage: `url(${bw})` }}
+    const handleRandomize = (randomPost) => {
+        setRandomPost(randomPost)
+    }
+
+
 
     return (
-        <div className="bg-cover min-h-screen"style={{ backgroundImage: `url(${picnic})` }}>
-            
-                <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
-            
-            <div className="posts-container" >
-                <div className="">
-                    {filteredPosts.map((postObj) => {
-                        return (
-                            <Post post={postObj} key={postObj.id} />
-                        )
-                    })}
-                </div>
-            </div>
+        <div className="bg-cover min-h-screen" style={{ backgroundImage: `url(${picnic})` }}>
+            <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
+            {randomPost ? (
+                <Post post={randomPost} key={randomPost.id} />
+            ) : (
+                <>
+                    <div className="random">
+                        <Randomize posts={filteredPosts} onRandomize={handleRandomize} />
+                    </div>
+                    <div className="posts-container" >
+                        <div className="">
+                            {filteredPosts.map((postObj) => {
+                                return (
+                                    <Post post={postObj} key={postObj.id} />
+                                )
+                            })}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     )
-
 }
