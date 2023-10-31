@@ -5,6 +5,7 @@ import { getAllCuisines } from "../../services/getAllCuisines"
 import { Post } from "./Post"
 import { FilterBar } from "./FilterBar"
 import picnic from "../../images/picnic2.webp"
+import graypicnic from "../../images/graypicnic.webp"
 import { Randomize } from "./Randomize"
 
 
@@ -15,6 +16,8 @@ export const AllPosts = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [allCuisines, setAllCuisines] = useState([])
     const [randomPost, setRandomPost] = useState(null)
+    const [theme, setTheme] = useState(null)
+    const [backgroundImage, setBackgroundImage] = useState(picnic)
 
 
     useEffect(() => {
@@ -23,13 +26,11 @@ export const AllPosts = () => {
         })
     }, [])
 
-
     useEffect(() => {
         getAllCuisines().then((cuisinesArray) => {
             setAllCuisines(cuisinesArray)
         })
     }, [])
-
 
     useEffect(() => {
         const foundPosts = posts.filter(
@@ -37,7 +38,6 @@ export const AllPosts = () => {
         )
         setFilteredPosts(foundPosts)
     }, [searchTerm, posts])
-
 
     useEffect(() => {
         if (chosenCuisine) {
@@ -48,33 +48,67 @@ export const AllPosts = () => {
         }
     }, [chosenCuisine, posts])
 
+    useEffect(() => {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark')
+        } else {
+            setTheme('light')
+        }
+    }, [])
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    }, [theme])
+
+    useEffect(() => {
+        if (theme === 'dark') {
+          setBackgroundImage(graypicnic);
+        } else {
+          setBackgroundImage(picnic);
+        }
+      }, [theme]);
+
+
+    const handleThemeSwitch = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark')
+    }
+
     const handleRandomize = (randomPost) => {
         setRandomPost(randomPost)
     }
 
 
-
     return (
-        <div className="bg-cover min-h-screen" style={{ backgroundImage: `url(${picnic})` }}>
-            <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
-            {randomPost ? (
-                <Post post={randomPost} key={randomPost.id} />
-            ) : (
-                <>
-                    <div className="random">
-                        <Randomize posts={filteredPosts} onRandomize={handleRandomize} />
-                    </div>
-                    <div className="posts-container" >
-                        <div className="">
-                            {filteredPosts.map((postObj) => {
-                                return (
-                                    <Post post={postObj} key={postObj.id} />
-                                )
-                            })}
+        <div className='bg-img bg-cover min-h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
+            <div className="">
+                <button className="bg-green-200 p-4 rounded 3-xl" onClick={handleThemeSwitch}>
+                    Dark Mode
+                </button>
+                <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
+
+                {randomPost ? (
+                    <Post post={randomPost} key={randomPost.id} />
+                ) : (
+                    <>
+                        <div className="random">
+                            <Randomize posts={filteredPosts} onRandomize={handleRandomize} />
                         </div>
-                    </div>
-                </>
-            )}
+                        <div className="posts-container" >
+                            <div className="">
+                                {filteredPosts.map((postObj) => {
+                                    return (
+                                        <Post post={postObj} key={postObj.id} />
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
         </div>
     )
 }

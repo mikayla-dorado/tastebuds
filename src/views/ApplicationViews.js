@@ -8,7 +8,6 @@ import { MyProfile } from "../components/posts/MyProfile"
 import { EditPost } from "../components/forms/EditPost"
 import { Favorites } from "../components/posts/Favorites"
 
-
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({})
 

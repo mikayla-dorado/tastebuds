@@ -30,8 +30,11 @@ import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
 
 
+
+
 export const App = () => {
   return (
+    
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
@@ -41,9 +44,12 @@ export const App = () => {
         element={
           <Authorized>
             <ApplicationViews />
+            
           </Authorized>
         }
       />
     </Routes>
+    
   )
 }
+
