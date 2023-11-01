@@ -7,6 +7,7 @@ import { FilterBar } from "./FilterBar"
 import picnic from "../../images/picnic2.webp"
 import graypicnic from "../../images/graypicnic.webp"
 import { Randomize } from "./Randomize"
+import { useTheme } from "../../components/ThemeContext"
 
 
 export const AllPosts = () => {
@@ -16,8 +17,10 @@ export const AllPosts = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [allCuisines, setAllCuisines] = useState([])
     const [randomPost, setRandomPost] = useState(null)
-    const [theme, setTheme] = useState(null)
-    const [backgroundImage, setBackgroundImage] = useState(picnic)
+    //const [theme, setTheme] = useState(null)
+    //const [backgroundImage, setBackgroundImage] = useState(picnic)
+
+    const { theme, toggleTheme, backgroundImage } = useTheme()
 
 
     useEffect(() => {
@@ -48,34 +51,34 @@ export const AllPosts = () => {
         }
     }, [chosenCuisine, posts])
 
-    useEffect(() => {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark')
-        } else {
-            setTheme('light')
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    //         setTheme('dark')
+    //     } else {
+    //         setTheme('light')
+    //     }
+    // }, [])
 
-    useEffect(() => {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [theme])
+    // useEffect(() => {
+    //     if (theme === 'dark') {
+    //         document.documentElement.classList.add('dark')
+    //     } else {
+    //         document.documentElement.classList.remove('dark')
+    //     }
+    // }, [theme])
 
-    useEffect(() => {
-        if (theme === 'dark') {
-          setBackgroundImage(graypicnic);
-        } else {
-          setBackgroundImage(picnic);
-        }
-      }, [theme]);
+    // useEffect(() => {
+    //     if (theme === 'dark') {
+    //         setBackgroundImage(graypicnic);
+    //     } else {
+    //         setBackgroundImage(picnic);
+    //     }
+    // }, [theme]);
 
 
-    const handleThemeSwitch = () => {
-        setTheme(theme === 'dark' ? 'light' : 'dark')
-    }
+    // const handleThemeSwitch = () => {
+    //     setTheme(theme === 'dark' ? 'light' : 'dark')
+    // }
 
     const handleRandomize = (randomPost) => {
         setRandomPost(randomPost)
@@ -83,10 +86,10 @@ export const AllPosts = () => {
 
 
     return (
-        <div className='bg-img bg-cover min-h-screen' style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className={`bg-img bg-cover min-h-screen ${theme}`} style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="">
-                <button className="bg-green-200 p-4 rounded 3-xl" onClick={handleThemeSwitch}>
-                    Dark Mode
+                <button className="bg-green-200 p-4 rounded 3-xl" onClick={toggleTheme}>
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
                 </button>
                 <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
 

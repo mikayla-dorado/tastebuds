@@ -7,6 +7,7 @@ import { NewPost } from "../components/posts/NewPost"
 import { MyProfile } from "../components/posts/MyProfile"
 import { EditPost } from "../components/forms/EditPost"
 import { Favorites } from "../components/posts/Favorites"
+import { ThemeProvider } from "../../src/components/ThemeContext"
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({})
@@ -19,13 +20,17 @@ export const ApplicationViews = () => {
 
 
   return (
+    <ThemeProvider>
     <Routes>
+      
       <Route
         path="/"
         element={
           <>
+          
             <NavBar />
             <Outlet />
+            
           </>
         }
       >
@@ -35,12 +40,14 @@ export const ApplicationViews = () => {
           <Route path=":postId" element={<PostDetails currentUser={currentUser} />} />
         </Route>
         <Route path="newpost" element={<NewPost  currentUser={currentUser}/>} />
-        <Route path="myprofile" element={<MyProfile currentUser={currentUser}/>} />
+        <Route path="myprofile" element={<MyProfile currentUser={currentUser}/>} />   
         <Route path="favorites" element={<Favorites currentUser={currentUser} />} />
         <Route path="editpost">
           <Route path=":postId" element={<EditPost currentUser={currentUser} />} />
         </Route>
       </Route>
+      
     </Routes>
+    </ThemeProvider>
   )
 }
