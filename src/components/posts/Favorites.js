@@ -34,7 +34,7 @@ export const Favorites = ({ currentUser }) => {
                 <img src={NoFavorites} alt="pn cle" className="img h-96 rounded fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
         ) : (
-            <div className="favorites-container min-h-screen bg-cover" style={{ backgroundImage: `url(${fav})` }}>
+            <div className="favorites-container min-h-screen bg-cover" >
                 {userLikes.map((userLike) => (
                     <div className="posts bg-orange-200 border rounded-md text-lg" key={userLike.id}>
                         <div className="fav-cuisine">
@@ -65,3 +65,5 @@ export const Favorites = ({ currentUser }) => {
     </>
     )
 }
+
+//style={{ backgroundImage: `url(${fav})` }}

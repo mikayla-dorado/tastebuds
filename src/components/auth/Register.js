@@ -50,9 +50,12 @@ export const Register = (props) => {
         setUser(copy)
       }
     
+//style={{ backgroundImage: `url(${registerImg})` }}
+
+
       return (
-        <div className="reg-bg min-h-screen bg-cover pt-8" style={{ backgroundImage: `url(${registerImg})` }}>
-        <main className="auth-container">
+        <div className="reg-bg min-h-screen bg-cover pt-8" >
+        <main className="auth-container bg-orange-200">
           <form className="auth-form" onSubmit={handleRegister}>
             <h1 className="header">Learning Moments</h1>
             <h2>Please Register</h2>
@@ -81,7 +84,7 @@ export const Register = (props) => {
                 />
               </div>
             </fieldset>
-            <fieldset className="auth-fieldset border px-1 rounded">
+            <fieldset className="auth-fieldset border px-1 rounded bg-gray-100">
               <div>
                 <button type="submit">Register</button>
               </div>

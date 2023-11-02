@@ -32,7 +32,10 @@ import { Authorized } from "./views/Authorized"
 
 
 export const App = () => {
+
+
   return (
+
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
@@ -41,11 +44,12 @@ export const App = () => {
         path="*"
         element={
           <Authorized>
-            <ApplicationViews />
+            <ApplicationViews/>
           </Authorized>
         }
       />
     </Routes>
+    
   )
 }
 

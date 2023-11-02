@@ -39,9 +39,9 @@ export const MyProfile = ({ currentUser }) => {
             console.error('error fetching user posts:', error)
         }
     }
-
+//style={{ backgroundImage: `url(${border})` }}
     return (
-        <div className="text-center min-h-screen bg-cover" style={{ backgroundImage: `url(${border})` }}>
+        <div className="text-center min-h-screen bg-cover" >
             <header className="text-center">My Posts</header>
             <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)

@@ -7,7 +7,7 @@ import { FilterBar } from "./FilterBar"
 import picnic from "../../images/picnic2.webp"
 import graypicnic from "../../images/graypicnic.webp"
 import { Randomize } from "./Randomize"
-import { useTheme } from "../../components/ThemeContext"
+
 
 
 export const AllPosts = () => {
@@ -17,10 +17,10 @@ export const AllPosts = () => {
     const [searchTerm, setSearchTerm] = useState("")
     const [allCuisines, setAllCuisines] = useState([])
     const [randomPost, setRandomPost] = useState(null)
-    //const [theme, setTheme] = useState(null)
-    //const [backgroundImage, setBackgroundImage] = useState(picnic)
+    const [theme, setTheme] = useState(null)
+    const [backgroundImage, setBackgroundImage] = useState(picnic)
 
-    const { theme, toggleTheme, backgroundImage } = useTheme()
+    // const { theme, toggleTheme } = useTheme()
 
 
     useEffect(() => {
@@ -84,13 +84,11 @@ export const AllPosts = () => {
         setRandomPost(randomPost)
     }
 
-
+    //style={{ backgroundImage: `url(${backgroundImage})` }}
     return (
-        <div className={`bg-img bg-cover min-h-screen ${theme}`} style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <div className='bg-img bg-cover min-h-screen' >
             <div className="">
-                <button className="bg-green-200 p-4 rounded 3-xl" onClick={toggleTheme}>
-                {theme === "dark" ? "Light Mode" : "Dark Mode"}
-                </button>
+
                 <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
 
                 {randomPost ? (

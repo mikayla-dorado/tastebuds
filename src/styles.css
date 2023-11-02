@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.light-mode {
+    background-image: url("../src/images/picnic2.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dark-mode {
+    background-image: url("../src/images/graypicnic.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body{
+    background-image: url("../src/images/picnic2.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.random-btn{
+    background-color: rgb(228, 162, 101);
+}
+
+.toggle-btn {
+    background-color: rgb(228, 162, 101);
+}

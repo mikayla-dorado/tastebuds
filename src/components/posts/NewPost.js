@@ -57,8 +57,11 @@ export const NewPost = ({ currentUser }) => {
         navigate('/myprofile')
     }
 
+
+    //style={{ backgroundImage: `url(${bg})` }}
+    
     return (
-        <div className="min-h-screen bg-cover" style={{ backgroundImage: `url(${bg})` }}>
+        <div className="min-h-screen bg-cover" >
             <header className="text-center" >Create a New Post</header>
             <div className="border rounded-md flex justify-center mt-5 bg-sky-100">
             <form onSubmit={handleSave} className="">

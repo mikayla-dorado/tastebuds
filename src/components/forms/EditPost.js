@@ -76,9 +76,9 @@ export const EditPost = () => {
             return updatedPost
         })
     }
-
+//style={{ backgroundImage: `url(${bg})` }}
     return (
-        <div className="min-h-screen" style={{ backgroundImage: `url(${bg})` }}>
+        <div className="min-h-screen" >
             <h2 className="head text-center">Edit Post</h2>
             <div className="border rounded-md flex justify-center bg-sky-100">
                 <form>

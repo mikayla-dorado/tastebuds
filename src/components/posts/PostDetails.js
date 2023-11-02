@@ -71,7 +71,7 @@ export const PostDetails = ({ currentUser }) => {
 
 
     return (
-        <div className="postdetails-container min-h-screen mt-5">
+        <div className="postdetails-container min-h-screen mt-5 mb-5 px-9">
 
             <div className="details bg-orange-100">
                 <div className="postdetails-title text-center text-xl">

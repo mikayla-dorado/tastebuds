@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import "../../styles.css"
 
 
 export const Randomize = ({ posts, onRandomize }) => {
@@ -23,7 +24,7 @@ export const Randomize = ({ posts, onRandomize }) => {
     return (
         <div>
             <button onClick={handleRandomize}
-                className=" bg-lime-600 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Random Recipe Generator</button>
+                className=" random-btn text-white font-bold py-2 px-4 rounded focus:outline-none">Random Recipe Generator</button>
             {randomPost && (
                 <div>
                     <div className="individual-post w-auto bg-orange-200">
