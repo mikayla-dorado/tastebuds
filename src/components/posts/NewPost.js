@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { getAllCuisines } from "../../services/getAllCuisines"
 import { createNewPost } from "../../services/getAllPosts"
 import bg from "../../images/gpicnic.webp"
+import "./Post.css"
 
 
 export const NewPost = ({ currentUser }) => {
@@ -63,7 +64,7 @@ export const NewPost = ({ currentUser }) => {
     return (
         <div className="min-h-screen bg-cover" >
             <header className="text-center" >Create a New Post</header>
-            <div className="border rounded-md flex justify-center mt-5 bg-sky-100">
+            <div className="form border rounded-md flex justify-center mt-5 bg-sky-100">
             <form onSubmit={handleSave} className="">
                 
                 <select
@@ -71,7 +72,7 @@ export const NewPost = ({ currentUser }) => {
                     id="cuisines"
                     onChange={(e) => setSelectedCuisineId(e.target.value)}
                     value={selectedCuisineId}
-                    className="border rounded mt-5 ml-9">
+                    className="drop border rounded mt-5 ml-9">
                     <option className="border ">Select Cuisine</option>
 
                     {cuisines.map((cuisine) => {
@@ -134,7 +135,7 @@ export const NewPost = ({ currentUser }) => {
                         className="border rounded"/>
                 </div>
                 <div>
-                    <button type="save" onClick={handleSave} className="border rounded bg-orange-200 mt-2.5 mb-5 ml-11 px-1">
+                    <button type="save" onClick={handleSave} className="postr-btn rounded mt-2.5 mb-5 ml-11 px-1 py-1">
                         Post Recipe
                     </button>
                 </div>

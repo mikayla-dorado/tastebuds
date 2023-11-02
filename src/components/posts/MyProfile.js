@@ -42,7 +42,7 @@ export const MyProfile = ({ currentUser }) => {
 //style={{ backgroundImage: `url(${border})` }}
     return (
         <div className="text-center min-h-screen bg-cover" >
-            <header className="text-center">My Posts</header>
+            <header className="myposts text-center">My Posts</header>
             <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)
                     .map((post) => (
@@ -76,7 +76,7 @@ export const MyProfile = ({ currentUser }) => {
                 <button onClick={() => {
                     navigate(`/newpost`)
                 }}
-                    className="newpost-btn my-2.5 border border rounded mx-4 text-gray-100 bg-lime-600 hover:bg-emerald-600">Create a New Post
+                    className="newpost-btn my-2.5  rounded mx-4 px-1 py-1">Create a New Post
                 </button>
             </div>
         </div>

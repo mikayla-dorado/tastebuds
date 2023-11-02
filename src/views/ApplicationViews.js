@@ -24,7 +24,7 @@ export const ApplicationViews = () => {
 
   const DarkModeFunction = () => {
     var element = document.body;
-    element.classList.toggle("dark-mode");
+    element.classList.toggle("darkMode");
   }
 
 
@@ -38,7 +38,7 @@ export const ApplicationViews = () => {
 
             <>
               <NavBar />
-              <button onClick={DarkModeFunction} className="toggle-btn px-1.5 rounded my-1.5">Toggle dark mode</button>
+              <button onClick={DarkModeFunction} className="toggle-btn rounded my-1.5 text-xl px-3 flex justify-between w-20"><i class="fa-regular fa-sun"></i><i class="fa-solid fa-moon"></i></button>
               <Outlet />
             </>
 

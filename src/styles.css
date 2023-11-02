@@ -3,29 +3,87 @@
 @tailwind utilities;
 
 
-
-.light-mode {
+/* 
+.lightMode {
     background-image: url("../src/images/picnic2.webp");
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
-.dark-mode {
-    background-image: url("../src/images/graypicnic.webp");
+.darkMode {
+    background-image: url("../src/images/black.webp");
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+    .individual-post{
+        background-color: rgb(90, 89, 89);
+    }
+    .alltopics-dropdown{
+        background-color: black;
+    }
+    .dropdown{
+        background-color: black;
+    }
+    .search-term{
+        background-color: black;
+    }
+    .search-posts{
+        background-color: black;
+    }
+    .navbar{
+        background-color:rgb(85, 85, 85);
+    }
+    .random-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .posts{
+        background-color: rgb(90, 89, 89);
+    }
+    .myposts{
+        color: rgb(163, 187, 202);
+    }
+    .my-post{
+        background-color: rgb(90, 89, 89);
+    }
+    .newpost-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .form {
+        background-color: rgb(90, 89, 89);
+    }
+    .drop {
+        background-color: black;
+    }
+    .postr-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .details{
+        background-color: rgb(90, 89, 89);
+    }
+    .like-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .auth-container{
+        background-color: rgb(90, 89, 89);
+    }
+    .signin-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .reg-btn{
+        background-color: rgb(163, 187, 202);
+    }
+    .auth-form-input{
+        color: black;
+    }
 }
 
 body{
     background-image: url("../src/images/picnic2.webp");
     background-size: cover;
     background-repeat: no-repeat;
+    
 }
 
 .random-btn{
-    background-color: rgb(228, 162, 101);
-}
-
-.toggle-btn {
     background-color: rgb(228, 162, 101);
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getUserLikes } from "../../services/getUserLikes"
 import { Link} from "react-router-dom"
 import "./Post.css"
+import "../../styles.css"
 
 
 export const Post = ({  post }) => {

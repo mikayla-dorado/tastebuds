@@ -86,7 +86,7 @@ export const Register = (props) => {
             </fieldset>
             <fieldset className="auth-fieldset border px-1 rounded bg-gray-100">
               <div>
-                <button type="submit">Register</button>
+                <button type="submit" className="reg-btn px-1">Register</button>
               </div>
             </fieldset>
           </form>

@@ -11,7 +11,7 @@ const navigate = useNavigate()
 
     return (
         <>
-            <ul className="navbar bg-green-500">
+            <ul className="navbar ">
                 <li className="navbar-item underline">
                     <Link to="/">Home</Link>
                 </li>

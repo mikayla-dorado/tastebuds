@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { editPost, getPostById } from "../../services/getAllPosts"
-import bg from "../../images/gpicnic.webp"
+// import bg from "../../images/gpicnic.webp"
+import "../posts/Post.css"
 
 
 export const EditPost = () => {
@@ -76,7 +77,7 @@ export const EditPost = () => {
             return updatedPost
         })
     }
-//style={{ backgroundImage: `url(${bg})` }}
+    //style={{ backgroundImage: `url(${bg})` }}
     return (
         <div className="min-h-screen" >
             <h2 className="head text-center">Edit Post</h2>
@@ -127,7 +128,7 @@ export const EditPost = () => {
                         />
                     </div>
                     <div>
-                        <button className="savechagnes-btn border px-1 mb-5 bg-lime-600 hover:bg-emerald-600" onClick={handleSave}>Save Changes</button>
+                        <button className="savechanges-btn rounded px-1 py-1 mb-5 " onClick={handleSave}>Save Changes</button>
                     </div>
                 </form>
             </div>

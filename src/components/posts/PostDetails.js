@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
             return null;
         } else {
             return (
-                <button className="like-btn border-double rounded w-24 bg-lime-600 hover:bg-emerald-600 text-gray-100" onClick={handleLikedPost}>
+                <button className="like-btn rounded w-24 px-1 py-1" onClick={handleLikedPost}>
                     Favorite Post
                 </button>
             );
