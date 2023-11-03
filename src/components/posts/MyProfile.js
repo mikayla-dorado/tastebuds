@@ -39,35 +39,37 @@ export const MyProfile = ({ currentUser }) => {
             console.error('error fetching user posts:', error)
         }
     }
-//style={{ backgroundImage: `url(${border})` }}
+    //style={{ backgroundImage: `url(${border})` }}
     return (
+
         <div className="text-center min-h-screen bg-cover" >
             <header className="myposts text-center">My Posts</header>
             <article className="myprofile">
                 {posts.filter((post) => post.userId === userId.id)
                     .map((post) => (
-                        <div className="my-post border border rounded p-2 mb-4 bg-orange-200" key={post.id}>
+                        <div className="my-post border  h-48 rounded p-2 mb-4 bg-orange-200" key={post.id}>
                             <div className="mypost-cuisine">
                                 {post?.cuisine?.type}
                             </div>
                             <div>
-                                <Link to={`/post/${post.id}`} className="title underline">{post.title}</Link>
+                                <Link to={`/post/${post.id}`} className="title underline text-center">{post.title}</Link>
                             </div>
-                            <div className="desc my-3">
+                            <div className="desc my-3 w-full">
                                 {post?.description}
                             </div>
-                            <div>
+                            <div className="btn-container">
                                 <button onClick={() => {
                                     handleEdit(post)
                                     refetchUserPosts()
                                     navigate(`/editpost/${post.id}`)
-                                }} className="pr-2"><i className="fa-solid fa-pen-to-square" /></button>
+                                }} className="pr-2"><i className="fa-solid fa-pen-to-square" />
+                                </button>
                             </div>
-                            <div>
+                            <div className="btn-container ">
                                 <button onClick={() => {
                                     handleDelete(post)
                                 }}
-                                   ><i className="fa-solid fa-trash" /></button>
+                                ><i className="fa-solid fa-trash" /></button>
                             </div>
                         </div>
                     ))}
@@ -76,7 +78,7 @@ export const MyProfile = ({ currentUser }) => {
                 <button onClick={() => {
                     navigate(`/newpost`)
                 }}
-                    className="newpost-btn my-2.5  rounded mx-4 px-1 py-1">Create a New Post
+                    className="newpost-btn my-2.5  rounded mx-4 px-1 py-1 hover:bg-orange-700">Create a New Post
                 </button>
             </div>
         </div>

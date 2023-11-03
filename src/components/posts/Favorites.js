@@ -36,7 +36,7 @@ export const Favorites = ({ currentUser }) => {
         ) : (
             <div className="favorites-container min-h-screen bg-cover" >
                 {userLikes.map((userLike) => (
-                    <div className="posts bg-orange-200 border rounded-md text-lg" key={userLike.id}>
+                    <div className="posts bg-orange-200 border rounded-md text-lg h-36" key={userLike.id}>
                         <div className="fav-cuisine">
                             {userLike?.post?.cuisine?.type}
                         </div>

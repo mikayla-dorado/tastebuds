@@ -135,7 +135,7 @@ export const NewPost = ({ currentUser }) => {
                         className="border rounded"/>
                 </div>
                 <div>
-                    <button type="save" onClick={handleSave} className="postr-btn rounded mt-2.5 mb-5 ml-11 px-1 py-1">
+                    <button type="save" onClick={handleSave} className="postr-btn rounded mt-2.5 mb-5 ml-11 px-1 py-1 hover:bg-orange-700">
                         Post Recipe
                     </button>
                 </div>

@@ -3,7 +3,7 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
 
     return (
         <div className="filter-by-cuisine">
-            <div className="alltopics-dropdown w-32 bg-gray-100 ">
+            <div className="alltopics-dropdown w-32  bg-gray-100">
                 <select
                     name="cuisines"
                     id="cuisines"

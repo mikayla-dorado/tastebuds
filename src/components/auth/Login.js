@@ -61,7 +61,7 @@ export const Login = () => {
               </fieldset>
               <fieldset className="auth-fieldset">
                 <div >
-                  <button className="signin-btn bg-gray-100 rounded" type="submit">Sign in</button>
+                  <button className="signin-btn bg-gray-100 rounded hover:bg-orange-700" type="submit">Sign in</button>
                 </div>
               </fieldset>
             </form>

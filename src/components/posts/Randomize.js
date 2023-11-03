@@ -24,7 +24,7 @@ export const Randomize = ({ posts, onRandomize }) => {
     return (
         <div>
             <button onClick={handleRandomize}
-                className=" random-btn font-bold py-2 px-4 rounded focus:outline-none">Random Recipe Generator</button>
+                className=" random-btn font-bold py-2 px-4 rounded focus:outline-none hover:bg-orange-700">Random Recipe Generator</button>
             {randomPost && (
                 <div>
                     <div className="individual-post w-auto bg-orange-200">
