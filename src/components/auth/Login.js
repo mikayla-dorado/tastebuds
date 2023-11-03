@@ -40,8 +40,8 @@ export const Login = () => {
  //style={{ backgroundImage: `url(${picnic2})` }}
   return (
     <dataContext.Provider value={{ isDarkMode, setIsDarkMode }}>
-      <div className="min-h-screen bg-cover pt-8 " >
-        <main className="auth-container bg-orange-200">
+      <div className="min-h-screen bg-cover pt-8" >
+        <main className="auth-container bg-orange-200 py-16 px-16">
           <section>
             <form className="auth-form" onSubmit={handleLogin}>
               <h1 className="header">TasteBuds</h1>

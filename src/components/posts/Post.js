@@ -25,7 +25,7 @@ export const Post = ({  post }) => {
 
 
     return (
-        <div className="individual-post w-auto bg-orange-200">
+        <div className="individual-post w-auto bg-orange-200 ">
             <div>
 
             </div>
@@ -35,6 +35,9 @@ export const Post = ({  post }) => {
             <div className="post-cuisine ">
                 {post?.cuisine?.type}
             </div>
+            <div>
+                    <img src={post?.imageURL} className="w-32 w-64 h-64 mx-auto border mb-2.5" />
+                </div>
             <div className="post-description border-double w-60">
                 {post?.description}
             </div>

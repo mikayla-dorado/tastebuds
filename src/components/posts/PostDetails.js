@@ -6,11 +6,13 @@ import { getPostById } from "../../services/getAllPosts"
 import { getUserLikesByPostId, removeUserPostLike, saveUserPostLike } from "../../services/getUserLikes"
 
 
+
 export const PostDetails = ({ currentUser }) => {
     const { postId } = useParams()
     const [postLikes, setPostLikes] = useState([])
     const [post, setPost] = useState({})
     const [isLiked, setIsLiked] = useState(false)
+
 
     const navigate = useNavigate()
 
@@ -68,6 +70,7 @@ export const PostDetails = ({ currentUser }) => {
     useEffect(() => {
         setIsLiked(isPostLiked())
     }, [postLikes, currentUser])
+
 
 
     return (

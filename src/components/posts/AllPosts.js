@@ -9,7 +9,7 @@ import "../../styles.css"
 
 
 
-export const AllPosts = ({darkMode}) => {
+export const AllPosts = ({darkMode, post}) => {
     const [posts, setPosts] = useState([])
     const [filteredPosts, setFilteredPosts] = useState([])
     const [chosenCuisine, setChosenCuisine] = useState(null)
@@ -55,7 +55,7 @@ export const AllPosts = ({darkMode}) => {
     //style={{ backgroundImage: `url(${backgroundImage})` }}
     return (
         <div className='bg-img bg-cover min-h-screen' >
-            <div  >
+            <div>
 
                 <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
 
@@ -67,7 +67,8 @@ export const AllPosts = ({darkMode}) => {
                             <Randomize posts={filteredPosts} onRandomize={handleRandomize} />
                         </div>
                         <div className="posts-container" >
-                            <div className="">
+                        
+                            <div className="posts-container-item w-2/4">
                                 {filteredPosts.map((postObj) => {
                                     return (
                                         <Post post={postObj} key={postObj.id}  />
@@ -75,6 +76,7 @@ export const AllPosts = ({darkMode}) => {
                                 })}
                             </div>
                         </div>
+                        
                     </>
                 )}
             </div>

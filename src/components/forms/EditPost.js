@@ -5,7 +5,7 @@ import { editPost, getPostById } from "../../services/getAllPosts"
 import "../posts/Post.css"
 
 
-export const EditPost = () => {
+export const EditPost = ({ setChosenCuisine, allCuisines }) => {
     const [post, setPost] = useState([])
     const [title, setTitle] = useState("")
     const [cuisine, setCuisine] = useState({})
@@ -79,10 +79,30 @@ export const EditPost = () => {
     }
     //style={{ backgroundImage: `url(${bg})` }}
     return (
-        <div className="min-h-screen" >
+        <div className="min-h-screen px-10" >
             <h2 className="head text-center">Edit Post</h2>
-            <div className="border rounded-md flex justify-center bg-sky-100">
+            <div className="border rounded-md flex justify-center bg-orange-200 ">
                 <form>
+                    {/* <div className="alltopics-dropdown w-32  bg-gray-100">
+                        <select
+                            name="cuisines"
+                            id="cuisines"
+                            className="dropdown"
+                            onChange={(event) => {
+                                if (event.target.value === "0") {
+                                    setChosenCuisine(null)
+                                } else {
+                                    const foundCuisine = allCuisines.find((cuisine) => cuisine.id === parseInt(event.target.value))
+                                    setChosenCuisine(foundCuisine)
+                                }
+                            }}>
+                            <option className="select-cuisines border w-40" value="0">All Cuisines</option>
+
+                            {allCuisines.map((cuisine) => {
+                                return (<option value={cuisine.id} key={cuisine.id}>{cuisine.type}</option>)
+                            })}
+                        </select>
+                    </div> */}
                     <div>
                         <h3 className="mt-3">Title: </h3>
                         <input
@@ -127,8 +147,8 @@ export const EditPost = () => {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <div>
-                        <button className="savechanges-btn rounded px-1 py-1 mb-5 " onClick={handleSave}>Save Changes</button>
+                    <div className="flex justify-center items-center">
+                        <button className="savechanges-btn rounded px-1 py-1 mb-5 hover:bg-orange-700" onClick={handleSave}>Save Changes</button>
                     </div>
                 </form>
             </div>
