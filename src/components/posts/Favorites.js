@@ -3,9 +3,10 @@ import { getUserLikes, deleteLike } from "../../services/getUserLikes"
 import NoFavorites from "../../images/no-favorites.jpg"
 import fav from "../../images/picnic2.webp"
 import "./Favorites.css"
+import { Link } from "react-router-dom"
 
 
-export const Favorites = ({ currentUser }) => {
+export const Favorites = ({ currentUser, post }) => {
     const [userLikes, setUserLikes] = useState([])
 
     const getAndSetUserLikes = () => {
@@ -40,8 +41,8 @@ export const Favorites = ({ currentUser }) => {
                         <div className="fav-cuisine">
                             {userLike?.post?.cuisine?.type}
                         </div>
-                        <div className="fav-title ">
-                            {userLike?.post?.title}
+                        <div className="allposts-title underline text-xl">
+                            <Link to={`/post/${userLike?.post?.id}`} >{userLike?.post?.title} </Link>
                         </div>
                         <div className="fav-description">
                             {userLike?.post?.description}

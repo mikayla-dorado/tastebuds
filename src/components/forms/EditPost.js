@@ -3,15 +3,18 @@ import { useNavigate, useParams } from "react-router-dom"
 import { editPost, getPostById } from "../../services/getAllPosts"
 // import bg from "../../images/gpicnic.webp"
 import "../posts/Post.css"
+import { getAllCuisines } from "../../services/getAllCuisines"
 
 
-export const EditPost = ({ setChosenCuisine, allCuisines }) => {
+export const EditPost = () => {
     const [post, setPost] = useState([])
     const [title, setTitle] = useState("")
-    const [cuisine, setCuisine] = useState({})
     const [body, setBody] = useState("")
     const [ingredients, setIngredients] = useState("")
     const [description, setDescription] = useState("")
+    const [selectedCuisineId, setSelectedCuisineId] = useState('')
+    const [cuisines, setCuisines] = useState([])
+
 
     const postId = useParams()
     const navigate = useNavigate()
@@ -28,9 +31,10 @@ export const EditPost = ({ setChosenCuisine, allCuisines }) => {
     }, [body])
 
     useEffect(() => {
-        if (cuisine)
-            setCuisine(cuisine)
-    }, [cuisine])
+        if (selectedCuisineId)
+            setSelectedCuisineId(selectedCuisineId)
+    }, [selectedCuisineId])
+
 
     useEffect(() => {
         if (ingredients)
@@ -47,62 +51,72 @@ export const EditPost = ({ setChosenCuisine, allCuisines }) => {
             const postObj = data[0]
             setPost(postObj)
             setTitle(postObj.title)
-            setCuisine(postObj.cuisine)
+            setSelectedCuisineId(postObj.cuisine?.id || '')
             setBody(postObj.body)
             setIngredients(postObj.ingredients)
             setDescription(postObj.description)
         })
     }, [postId])
 
+    useEffect(() => {
+        getAllCuisines().then((cuisinesArray) => {
+            setCuisines(cuisinesArray)
+        })
+    }, [])
+
+
     const handleSave = (event) => {
         event.preventDefault()
 
-        if (post?.title === "" || post?.body === "" || post?.cuisineId === undefined || post?.ingredients === "" || post?.description === "") {
-            window.alert('Please fill out all fields')
+        const updatedPost = {
+            ...post,
+            title,
+            body,
+            cuisineId: parseInt(selectedCuisineId),
+            ingredients,
+            description,
+        };
+
+        if (
+            updatedPost.title === "" ||
+            updatedPost.body === "" ||
+            updatedPost.cuisineId === undefined ||
+            updatedPost.ingredients === "" ||
+            updatedPost.description === ""
+        ) {
+            window.alert('Please fill out all fields');
         } else {
-            editPost(post).then(() => {
-                navigate('/myprofile')
-            })
+            editPost(updatedPost).then(() => {
+                navigate('/myprofile');
+            });
         }
     }
 
     const handleInputChange = (event) => {
-        setPost((prevState) => {
-            const updatedPost = { ...prevState }
-            if (event.target.name === 'cuisineId') {
-                updatedPost[event.target.name] = parseInt(event.target.value)
-            } else {
-                updatedPost[event.target.name] = event.target.value
-            }
-            return updatedPost
-        })
+        setSelectedCuisineId(event.target.value)
     }
+
     //style={{ backgroundImage: `url(${bg})` }}
     return (
         <div className="min-h-screen px-10" >
             <h2 className="head text-center">Edit Post</h2>
             <div className="border rounded-md flex justify-center bg-orange-200 ">
                 <form>
-                    {/* <div className="alltopics-dropdown w-32  bg-gray-100">
+                    <div>
                         <select
                             name="cuisines"
                             id="cuisines"
-                            className="dropdown"
-                            onChange={(event) => {
-                                if (event.target.value === "0") {
-                                    setChosenCuisine(null)
-                                } else {
-                                    const foundCuisine = allCuisines.find((cuisine) => cuisine.id === parseInt(event.target.value))
-                                    setChosenCuisine(foundCuisine)
-                                }
-                            }}>
-                            <option className="select-cuisines border w-40" value="0">All Cuisines</option>
+                            onChange={handleInputChange}
+                            value={selectedCuisineId}
+                            className="drop border rounded mt-5 ml-9">
+                            <option className="border ">Select Cuisine</option>
 
-                            {allCuisines.map((cuisine) => {
+                            {cuisines.map((cuisine) => {
                                 return (<option value={cuisine.id} key={cuisine.id}>{cuisine.type}</option>)
                             })}
                         </select>
-                    </div> */}
+                    </div>
+
                     <div>
                         <h3 className="mt-3">Title: </h3>
                         <input

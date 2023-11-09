@@ -57,7 +57,7 @@ export const AllPosts = ({darkMode, post}) => {
         <div className='bg-img bg-cover min-h-screen' >
             <div>
 
-                <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} />
+                <FilterBar allCuisines={allCuisines} setChosenCuisine={setChosenCuisine} setSearchTerm={setSearchTerm} isEditing = {false}/>
 
                 {randomPost ? (
                     <Post post={randomPost} key={randomPost.id} />
@@ -83,3 +83,4 @@ export const AllPosts = ({darkMode, post}) => {
         </div>
     )
 }
+

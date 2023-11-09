@@ -23,6 +23,7 @@ export const FilterBar = ({ setSearchTerm, allCuisines, setChosenCuisine }) => {
                     })}
                 </select>
             </div>
+            
             <div className="search-term w-52">
                 <input
                     type="text"

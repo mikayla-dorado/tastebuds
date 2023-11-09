@@ -58,6 +58,7 @@ export const NewPost = ({ currentUser }) => {
         navigate('/myprofile')
     }
 
+    console.log(cuisines)
 
     //style={{ backgroundImage: `url(${bg})` }}
     
